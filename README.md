@@ -10,9 +10,6 @@ Checker will be released at 12-21-2020 03:00 AM
 
 QA review fully automated.
 
-![](https://pbs.twimg.com/media/CFYYWy6UEAE9Ow-.png)  
-  
-
 ## Resources
 
 **Read or watch**:
