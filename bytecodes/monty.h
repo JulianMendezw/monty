@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -34,8 +36,32 @@ typedef struct instruction_s
 		void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void _push(stack_t **head, unsigned int line_number);
-void _get_opcode(char *buffer, unsigned int line_number, stack_t **head);
+/**
+ * struct variables_s - All the variables that need to be free.
+ * @fd: File descriptor.
+ * @buffer: Pointer to the buffer created by getline.
+ * @head: Pointer to first node of the stack.
+ *
+ * Description: We can acces to this variables on anywhere on our program.
+ */
+typedef struct variables_s
+{
+	FILE *fd;
+	char *buffer;
+	stack_t *head;
+} var_t;
+extern var_t varx;
+var_t varx;
 
+/** File: monty.c */
+void _validate_number_arguments(int argc);
+FILE *_open_file(char **argv);
+void _getline(void);
+void _get_opcode(unsigned int line_number);
+void _free(void);
+void _free_all_varx(void);
+
+/* File: opcode.c */
+void _push(stack_t **head, unsigned int line_number);
 
 #endif
