@@ -39,14 +39,12 @@ void _push(stack_t **head, unsigned int line_number)
 	if (varx.head)
 		(varx.head)->prev = node;
 
-	printf("New node created, data: (%s)\n", data);
 	n = atoi(data);
 
 	node->n = n;
 	node->next = varx.head;
 	node->prev = NULL;
 	varx.head = node;
-	printf("->Node added %d\n", line_number);
 }
 
 

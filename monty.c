@@ -39,11 +39,9 @@ void _getline(void)
 		{
 			varx.buffer[strlen(varx.buffer) - 1] = '\0';
 			_get_opcode(line_number);
-			printf("im done with getline %d\n", line_number);
 		}
 	}
 
-	printf("-> im freeding when program its ok \n");
 	_free_all_varx();
 }
 
@@ -65,7 +63,6 @@ void _get_opcode(unsigned int line_number)
 							};
 
 	opcode = strtok(varx.buffer, " ");
-	printf("opcode: %s\n", opcode);
 
 	if (opcode)
 	{
