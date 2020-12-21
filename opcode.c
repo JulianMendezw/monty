@@ -28,14 +28,14 @@ void _push(stack_t **head, unsigned int line_number)
 	for (; data[i]; i++)
 	{
 		if (data[i] < '0' || data[i] > '9')
-			fprintf(stderr, "L%u: usxage: push integer\n", line_number),
+			fprintf(stderr, "L%u: usage: push integer\n", line_number),
 			_free_all_varx(),
 			exit(EXIT_FAILURE);
 	}
 
 	node = malloc(sizeof(stack_t));
 	if (!node)
-		fprintf(stderr, "Error: malloc failed\n"),
+		fprintf(stderr, "Error: mallxoc failed\n"),
 		_free_all_varx(),
 		exit(EXIT_FAILURE);
 	if (varx.head)
