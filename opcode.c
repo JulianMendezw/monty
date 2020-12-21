@@ -17,7 +17,7 @@ void _push(stack_t **head, unsigned int line_number)
 
 	if (!data)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usaxxge: push integer\n", line_number);
 		_free_all_varx();
 		exit(EXIT_FAILURE);
 	}
