@@ -27,7 +27,7 @@ void _push(stack_t **head, unsigned int line_number)
 
 	for (; data[i]; i++)
 	{
-		if (data[i] < '0' || data[i] > '9')
+		if (data[i] < 48 || data[i] > 57)
 			fprintf(stderr, "L%u: usage: push integer\n", line_number),
 			_free_all_varx(),
 			exit(EXIT_FAILURE);
