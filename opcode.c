@@ -17,7 +17,7 @@ void _push(stack_t **head, unsigned int line_number)
 
 	if (!data)
 	{
-		fprintf(stderr, "L%d: usaxxge: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		_free_all_varx();
 		exit(EXIT_FAILURE);
 	}
@@ -28,7 +28,7 @@ void _push(stack_t **head, unsigned int line_number)
 	for (; data[i]; i++)
 	{
 		if (data[i] < '0' || data[i] > '9')
-			fprintf(stderr, "L%u: usage: push integer\n", line_number),
+			fprintf(stderr, "L%u: usxage: push integer\n", line_number),
 			_free_all_varx(),
 			exit(EXIT_FAILURE);
 	}
