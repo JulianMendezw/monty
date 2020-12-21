@@ -1,6 +1,7 @@
 #ifndef __MONTY_H__
 #define __MONTY_H__
 
+#define  _GNU_SOURCE
 #define  _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <string.h>
@@ -64,5 +65,6 @@ void _free_all_varx(void);
 
 /* File: opcode.c */
 void _push(stack_t **head, unsigned int line_number);
+void _pall(stack_t **head, unsigned int line_number);
 
 #endif
