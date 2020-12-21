@@ -84,7 +84,7 @@ FILE *_open_file(char **argv)
 {
 	varx.fd = fopen(argv[1], "r");
 	if (!varx.fd)
-		fprintf(stderr, "Error: Caxn't open file %s\n", argv[1]),
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]),
 		exit(EXIT_FAILURE);
 
 	return (varx.fd);
