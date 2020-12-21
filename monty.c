@@ -20,5 +20,5 @@ int main(int argc, char **argv)
 
 	_get_info_data();
 
-	return (0);
+	exit(EXIT_SUCCESS);
 }
