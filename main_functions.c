@@ -68,7 +68,7 @@ void _get_opcode(unsigned int line_number)
 void _validate_number_arguments(int argc)
 {
 	if (argc != 2)
-		fprintf(stderr, "USAGE: monty file\n"),
+		fprintf(stderr, "USAGxE: monty file\n"),
 		exit(EXIT_FAILURE);
 }
 
