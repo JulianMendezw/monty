@@ -26,7 +26,7 @@ void _push(stack_t **head, unsigned int line_number)
 
 	for (; data[i]; i++)
 	{
-		if (data[i] < 48 || data[i] > 57 )
+		if (data[i] < 48 || data[i] > 57)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number),
 			_free_all_varx(),
@@ -52,6 +52,8 @@ void _push(stack_t **head, unsigned int line_number)
 
 /**
  * _pall - A function that frees a stack_t list.
+ * @head: Pointer to the first node.
+ * @line_number: Is the line number where the instruction appears.
  */
 
 void _pall(stack_t **head, unsigned int line_number)
