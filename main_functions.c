@@ -68,7 +68,7 @@ void _get_opcode(unsigned int line_number)
 void _validate_number_arguments(int argc)
 {
 	if (argc != 2)
-		fprintf(stderr, "USAGxE: monty file\n"),
+		fprintf(stderr, "USAGE: monty file\n"),
 		exit(EXIT_FAILURE);
 }
 
@@ -84,7 +84,7 @@ FILE *_open_file(char **argv)
 {
 	varx.fd = fopen(argv[1], "r");
 	if (!varx.fd)
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]),
+		fprintf(stderr, "Error: Caxn't open file %s\n", argv[1]),
 		exit(EXIT_FAILURE);
 
 	return (varx.fd);
