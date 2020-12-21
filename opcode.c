@@ -35,7 +35,7 @@ void _push(stack_t **head, unsigned int line_number)
 
 	node = malloc(sizeof(stack_t));
 	if (!node)
-		fprintf(stderr, "Error: mallxoc failed\n"),
+		fprintf(stderr, "Error: malloc failed\n"),
 		_free_all_varx(),
 		exit(EXIT_FAILURE);
 	if (varx.head)
