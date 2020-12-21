@@ -14,6 +14,7 @@ void _push(stack_t **head, unsigned int line_number)
 	(void)head;
 
 	data = strtok(NULL, " ");
+
 	if (!data)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
@@ -26,7 +27,7 @@ void _push(stack_t **head, unsigned int line_number)
 
 	for (; data[i]; i++)
 	{
-		if (data[i] < 48 || data[i] > 57)
+		if (data[i] < '0' || data[i] > '9')
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number),
 			_free_all_varx(),
@@ -38,7 +39,6 @@ void _push(stack_t **head, unsigned int line_number)
 	if (!node)
 		fprintf(stderr, "Error: malloc failed\n"),
 		exit(EXIT_FAILURE);
-
 	if (varx.head)
 		(varx.head)->prev = node;
 
