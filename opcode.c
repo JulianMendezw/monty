@@ -62,7 +62,7 @@ void _pall(stack_t **head, unsigned int line_number)
 	(void)line_number;
 
 	while (tmp)
-		printf("%d\n", tmp->n), tmp = tmp->next;
+		printf("%i\n", tmp->n), tmp = tmp->next;
 }
 
 
