@@ -8,7 +8,6 @@
  * Return:0 on succes.
  */
 
-
 int main(int argc, char **argv)
 {
 	varx.fd = 0;
