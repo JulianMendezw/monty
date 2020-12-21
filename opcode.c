@@ -8,10 +8,10 @@
 
 void _push(stack_t **head, unsigned int line_number)
 {
-	(void)head;
 	stack_t *node = NULL;
 	char *data = NULL;
 	int n = 0, i = 0;
+	(void)head;
 
 	data = strtok(NULL, " ");
 	if (!data)
@@ -45,6 +45,20 @@ void _push(stack_t **head, unsigned int line_number)
 	node->next = varx.head;
 	node->prev = NULL;
 	varx.head = node;
+}
+
+/**
+ * _pall - A function that frees a stack_t list.
+ */
+
+void _pall(stack_t **head, unsigned int line_number)
+{
+	stack_t *tmp = varx.head;
+	(void)head;
+	(void)line_number;
+
+	while (tmp)
+		printf("%d\n", tmp->n), tmp = tmp->next;
 }
 
 
