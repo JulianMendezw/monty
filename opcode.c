@@ -43,6 +43,7 @@ void _push(stack_t **head, unsigned int line_number)
 		(varx.head)->prev = node;
 
 	n = atoi(data);
+	printf("data: %d", n);
 
 	node->n = n;
 	node->next = varx.head;
