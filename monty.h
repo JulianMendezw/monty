@@ -1,9 +1,11 @@
 #ifndef __MONTY_H__
 #define __MONTY_H__
 
+#define  _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -55,7 +57,7 @@ var_t varx;
 /** File: monty.c */
 void _validate_number_arguments(int argc);
 FILE *_open_file(char **argv);
-void _getline(void);
+void _get_info_data(void);
 void _get_opcode(unsigned int line_number);
 void _free(void);
 void _free_all_varx(void);
