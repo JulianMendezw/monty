@@ -18,10 +18,7 @@ void _get_info_data(void)
 			_get_opcode(line_number);
 		}
 	}
-
-	_free_all_varx();
 }
-
 
 /**
  * _get_opcode - To get a instruction from a struct.
@@ -35,10 +32,11 @@ void _get_opcode(unsigned int line_number)
 	char *opcode = NULL;
 	int i = 0;
 
-	instruction_t ops[] =	{
-							{"push", _push},
-							{NULL, NULL}
-							};
+	instruction_t ops[] = {
+	{"push", _push},
+	{"pall", _pall},
+	{NULL, NULL}
+	};
 
 	opcode = strtok(varx.buffer, " ");
 
@@ -54,7 +52,7 @@ void _get_opcode(unsigned int line_number)
 
 	if (!ops[i].opcode)
 	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+		fprintf(stderr, "L%u: unknoxwn instruction %s\n", line_number, opcode);
 		_free_all_varx();
 
 		exit(EXIT_FAILURE);
