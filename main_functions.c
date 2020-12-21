@@ -52,7 +52,7 @@ void _get_opcode(unsigned int line_number)
 
 	if (!ops[i].opcode)
 	{
-		fprintf(stderr, "L%u: unknoxwn instruction %s\n", line_number, opcode);
+		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 		_free_all_varx();
 
 		exit(EXIT_FAILURE);
