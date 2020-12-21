@@ -1,71 +1,96 @@
 #include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-void _validate_number_arguments(int argc);
-FILE *_open_file(char **argv);
-void _getline(FILE *fd);
-void _push(stack_t **stack, unsigned int line_number);
+/**
+ * main - Interpreter for opcodes from a file <.m>.
+ * @argc: Count of arguments.
+ * @argv: Arguments from promt.
+ *
+ * Return:0 on succes.
+ */
 
-int main (int argc, char **argv)
+
+int main(int argc, char **argv)
 {
-	FILE *fd = NULL;
+	varx.fd = 0;
+	varx.buffer = NULL;
+	varx.head = NULL;
 
 	_validate_number_arguments(argc);
 
-	fd = _open_file(argv);
+	varx.fd = _open_file(argv);
 
-	_getline(fd);
+	_getline();
 
 	return (0);
 }
 
-void _getline(FILE *fd)
-{
-	char *buffer = NULL;
-	size_t nbytes = 0;
-	unsigned int line_number= 0;
-	stack_t *head = NULL;
+/**
+ * _getline - Funtion to get the info from any file.
+ */
 
-	while (getline(&buffer, &nbytes, fd) != EOF && ++line_number)
+void _getline(void)
+{
+	size_t nbytes = 0;
+	unsigned int line_number = 0;
+
+	while (getline(&varx.buffer, &nbytes, varx.fd) != EOF && ++line_number)
 	{
-		buffer[strlen(buffer) - 1] = '\0';
-		_get_opcode(buffer, line_number, &head);
+		if (varx.buffer)
+		{
+			varx.buffer[strlen(varx.buffer) - 1] = '\0';
+			_get_opcode(line_number);
+			printf("im done with getline %d\n", line_number);
+		}
 	}
 
-	fclose(fd);
-	free(buffer);
+	printf("-> im freeding when program its ok \n");
+	_free_all_varx();
 }
 
+/**
+ * _get_opcode - To get a instruction from a struct.
+ *
+ * @line_number: is the line number where the instruction appears.
+ */
 
-void _get_opcode(char *buffer, unsigned int line_number, stack_t **head)
+void _get_opcode(unsigned int line_number)
 {
 
 	char *opcode = NULL;
 	int i = 0;
 
-	instruction_t ops[] =
+	instruction_t ops[] =	{
+							{"push", _push},
+							{NULL, NULL}
+							};
+
+	opcode = strtok(varx.buffer, " ");
+	printf("opcode: %s\n", opcode);
+
+	if (opcode)
 	{
-		{"push", _push},
-		{NULL, NULL}
-	};
-
-	opcode = strtok(buffer, " ");
-	//data = strtok(NULL, " ");
-
-	while (ops[i].opcode)
-		if (strcmp(ops[i].opcode, opcode) == 0)
-		{
-			ops[i].f(head, line_number);
-			break;
-		}
+		for (i = 0; ops[i].opcode; i++)
+			if (strcmp(ops[i].opcode, opcode) == 0)
+			{
+				ops[i].f(&varx.head, line_number);
+				break;
+			}
+	}
 
 	if (!ops[i].opcode)
-		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode),
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+		_free_all_varx();
+
 		exit(EXIT_FAILURE);
+	}
 }
 
+/**
+ *_validate_number_arguments - To validate number of arguments passed to monty.
+ *
+ * @argc: Count of arguments.
+ */
 
 void _validate_number_arguments(int argc)
 {
@@ -74,15 +99,20 @@ void _validate_number_arguments(int argc)
 		exit(EXIT_FAILURE);
 }
 
+/**
+ * _open_file - To open a file where is the info.
+ *
+ * @argv: Argument to get the name of file.
+ *
+ * Return: The number of file descriptor opened.
+ */
 
 FILE *_open_file(char **argv)
 {
-	FILE *fd = NULL;
-
-	fd = fopen(argv[1], "r");
-	if (!fd)
+	varx.fd = fopen(argv[1], "r");
+	if (!varx.fd)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]),
 		exit(EXIT_FAILURE);
 
-	return(fd);
+	return (varx.fd);
 }
