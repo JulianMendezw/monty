@@ -73,7 +73,7 @@ void _pstr(stack_t **head, unsigned int line_number)
 	stack_t *tmp = *head;
 	(void)line_number;
 
-	while (tmp && (tmp->n > 0 && tmp->n <= 127))
+	while (tmp && tmp->n > 0 && tmp->n <= 127)
 	{
 		putchar(tmp->n);
 		tmp = tmp->next;
@@ -90,7 +90,24 @@ void _pstr(stack_t **head, unsigned int line_number)
 
 void _rotl(stack_t **head, unsigned int line_number)
 {
-	(void)head;
+	stack_t *tmp = *head;
+	int data_c = 0, i = 0;
 	(void)line_number;
 
+	if (tmp)
+		data_c = tmp->n;
+
+	for (; tmp; i++)
+	{
+		if (!tmp->next)
+		{
+			tmp->n = data_c;
+			break;
+		}
+		else
+		{
+			tmp->n = tmp->next->n;
+			tmp = tmp->next;
+		}
+	}
 }

@@ -37,7 +37,7 @@ void _get_opcode(unsigned int line_number)
 	{"pop", _pop}, {"swap", _swap},	{"add", _add},
 	{"nop", _nop}, {"sub", _sub}, {"div", _div},
 	{"mul", _mul}, {"mod", _mod}, {"pchar", _pchar},
-	{"pstr", _pstr},
+	{"pstr", _pstr}, {"rotl", _rotl},
 	{NULL, NULL}
 	};
 
@@ -60,7 +60,6 @@ void _get_opcode(unsigned int line_number)
 
 		exit(EXIT_FAILURE);
 	}
-
 }
 
 /**
