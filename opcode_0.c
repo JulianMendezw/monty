@@ -120,15 +120,16 @@ void _pop(stack_t **head, unsigned int line_number)
 
 void _swap(stack_t **head, unsigned int line_number)
 {
-	stack_t *h = *head;
+	int tmp = 0;
 
-	if (!h->next)
+	if (!(*head)->next)
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		_free_all_varx();
 		exit(EXIT_FAILURE);
 	}
 
-	printf("Hu\n");
-
+	tmp = (*head)->n;
+	(*head)->n = (*head)->next->n;
+	(*head)->next->n = tmp;
 }
