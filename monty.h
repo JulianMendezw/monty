@@ -65,5 +65,6 @@ void _free_all_varx(void);
 void _push(stack_t **head, unsigned int line_number);
 void _pall(stack_t **head, unsigned int line_number);
 void _pint(stack_t **head, unsigned int line_number);
+void _pop(stack_t **head, unsigned int line_number);
 
 #endif

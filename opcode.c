@@ -86,22 +86,28 @@ void _pint(stack_t **head, unsigned int line_number)
 	printf("%d\n", tmp->n);
 }
 
-
 /**
- * _free_all_varx - A function that frees all variables.
+ * _pop - A function that delete the first node of the stack.
+ * @head: Pointer to the first node.
+ * @line_number: Is the line number where the instruction appears.
  */
 
-void _free_all_varx(void)
+void _pop(stack_t **head, unsigned int line_number)
 {
-	stack_t *current = NULL;
+	stack_t *tmp = *head;
 
-	if (varx.buffer)
-		free(varx.buffer);
+	if (!tmp)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		_free_all_varx();
+		exit(EXIT_FAILURE);
+	}
 
-	while (varx.head)
-		current = varx.head,
-		varx.head = varx.head->next,
-		free(current);
+		*head = (*head)->next;
 
-	fclose(varx.fd);
+		if (tmp->next)
+			tmp->next->prev = NULL;
+
+		free(tmp);
+
 }
