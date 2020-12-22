@@ -122,7 +122,7 @@ void _swap(stack_t **head, unsigned int line_number)
 {
 	int tmp = 0;
 
-	if (!(*head)->next)
+	if (!*head || !(*head)->next)
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		_free_all_varx();
