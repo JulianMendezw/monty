@@ -1,5 +1,7 @@
-push 1
-push 2
+push 126
+
+
+pchar
                  #          asdsadad asd 
 #push 3
 pall

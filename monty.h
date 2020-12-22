@@ -77,6 +77,7 @@ void _mul(stack_t **head, unsigned int line_number);
 
 /** File: opcode_1.c */
 void _mod(stack_t **head, unsigned int line_number);
+void _pchar(stack_t **head, unsigned int line_number);
 
 
 #endif
