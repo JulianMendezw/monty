@@ -50,7 +50,21 @@ void _nop(stack_t **head, unsigned int line_number)
 
 void _sub(stack_t **head, unsigned int line_number)
 {
-	(void)head;
-	(void)line_number;
-	printf("test");
+	int sub = 0;
+	stack_t *tmp = *head;
+
+	if (!*head || !(*head)->next)
+	{
+		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		_free_all_varx();
+		exit(EXIT_FAILURE);
+	}
+
+	sub = (*head)->next->n - (*head)->n;
+
+	*head = (*head)->next;
+	(*head)->n = sub;
+	(*head)->prev = NULL;
+
+	free(tmp);
 }
