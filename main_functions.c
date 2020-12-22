@@ -37,12 +37,14 @@ void _get_opcode(unsigned int line_number)
 	{"pall", _pall},
 	{"pint", _pint},
 	{"pop", _pop},
+	{"swap", _swap},
+	{"nop", _nop},
 	{NULL, NULL}
 	};
 
 	opcode = strtok(varx.buffer, " ");
 
-	if (opcode)
+	if (opcode || (strcmp(opcode, "nop") != 0))
 	{
 		for (i = 0; ops[i].opcode; i++)
 			if (strcmp(ops[i].opcode, opcode) == 0)
