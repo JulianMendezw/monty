@@ -40,6 +40,7 @@ void _get_opcode(unsigned int line_number)
 	{"swap", _swap},
 	{"add", _add},
 	{"nop", _nop},
+	{"sub", _sub},
 	{NULL, NULL}
 	};
 
