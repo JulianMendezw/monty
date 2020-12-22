@@ -44,7 +44,7 @@ void _get_opcode(unsigned int line_number)
 
 	opcode = strtok(varx.buffer, " ");
 
-	if (opcode || (strcmp(opcode, "nop") != 0))
+	if (opcode)
 	{
 		for (i = 0; ops[i].opcode; i++)
 			if (strcmp(ops[i].opcode, opcode) == 0)

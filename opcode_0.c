@@ -111,3 +111,24 @@ void _pop(stack_t **head, unsigned int line_number)
 		free(tmp);
 
 }
+
+/**
+ * _swap - A function that swaps the top two elements of the stack.
+ * @head: Pointer to the first node.
+ * @line_number: Is the line number where the instruction appears
+ */
+
+void _swap(stack_t **head, unsigned int line_number)
+{
+	stack_t *h = *head;
+
+	if (!h->next)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		_free_all_varx();
+		exit(EXIT_FAILURE);
+	}
+
+	printf("Hu\n");
+
+}
