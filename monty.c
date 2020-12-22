@@ -20,5 +20,7 @@ int main(int argc, char **argv)
 
 	_get_info_data();
 
+	_free_all_varx();
+
 	exit(EXIT_SUCCESS);
 }

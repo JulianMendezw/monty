@@ -27,7 +27,7 @@ void _push(stack_t **head, unsigned int line_number)
 
 	for (; data[i]; i++)
 	{
-		if (data[i] < 48 || data[i] > 57)
+		if (data[i] < '0' || data[i] > '9')
 			fprintf(stderr, "L%u: usage: push integer\n", line_number),
 			_free_all_varx(),
 			exit(EXIT_FAILURE);
@@ -65,20 +65,27 @@ void _pall(stack_t **head, unsigned int line_number)
 		printf("%i\n", tmp->n), tmp = tmp->next;
 }
 
-
 /**
- * _free - A function that frees a stack_t list.
+ * _pint - A function that prints the first of the list.
+ * @head: Pointer to the first node.
+ * @line_number: Is the line number where the instruction appears.
  */
 
-void _free(void)
+void _pint(stack_t **head, unsigned int line_number)
 {
-	stack_t *current = NULL;
+	stack_t *tmp = varx.head;
+	(void)head;
 
-	while (varx.head)
-		current = varx.head,
-		varx.head = varx.head->next,
-		free(current);
+	if (!tmp)
+	{
+		printf("L%u: can't pint, stack empty", line_number);
+		_free_all_varx();
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%d\n", tmp->n);
 }
+
 
 /**
  * _free_all_varx - A function that frees all variables.
@@ -86,9 +93,15 @@ void _free(void)
 
 void _free_all_varx(void)
 {
+	stack_t *current = NULL;
+
 	if (varx.buffer)
 		free(varx.buffer);
 
-	_free();
+	while (varx.head)
+		current = varx.head,
+		varx.head = varx.head->next,
+		free(current);
+
 	fclose(varx.fd);
 }

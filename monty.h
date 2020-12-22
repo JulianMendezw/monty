@@ -59,11 +59,11 @@ void _validate_number_arguments(int argc);
 FILE *_open_file(char **argv);
 void _get_info_data(void);
 void _get_opcode(unsigned int line_number);
-void _free(void);
 void _free_all_varx(void);
 
-/* File: opcode.c */
+/** File: opcode.c */
 void _push(stack_t **head, unsigned int line_number);
 void _pall(stack_t **head, unsigned int line_number);
+void _pint(stack_t **head, unsigned int line_number);
 
 #endif
