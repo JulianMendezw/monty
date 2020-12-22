@@ -73,11 +73,8 @@ void _pstr(stack_t **head, unsigned int line_number)
 	stack_t *tmp = *head;
 	(void)line_number;
 
-	while (tmp &&  (tmp->n > 0 || tmp->n <= 127))
+	while (tmp && (tmp->n > 0 || tmp->n <= 127) && tmp->n != 0)
 	{
-		if (tmp->n == 0)
-		break;
-
 		putchar(tmp->n);
 		tmp = tmp->next;
 	}
