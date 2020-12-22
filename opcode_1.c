@@ -40,3 +40,15 @@ void _nop(stack_t **head, unsigned int line_number)
 	(void)head;
 	(void)line_number;
 }
+
+/**
+ * _sub - A function that do anything..
+ * @head: Pointer to the first node.
+ * @line_number: Is the line number where the instruction appears
+ */
+
+
+void _sub(stack_t **head, unsigned int line_number)
+{
+	printf("test");
+}

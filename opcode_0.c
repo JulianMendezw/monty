@@ -109,7 +109,6 @@ void _pop(stack_t **head, unsigned int line_number)
 			tmp->next->prev = NULL;
 
 		free(tmp);
-
 }
 
 /**

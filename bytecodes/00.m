@@ -1,10 +1,8 @@
+push 1
 push 2
-push 3
-nopvs
-pall
+add
 push 3
 pall
-
-
+pall
 
 
