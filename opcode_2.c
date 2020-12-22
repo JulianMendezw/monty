@@ -73,10 +73,24 @@ void _pstr(stack_t **head, unsigned int line_number)
 	stack_t *tmp = *head;
 	(void)line_number;
 
-	while (tmp && (tmp->n > 0 || tmp->n <= 127) && tmp->n != 0)
+	while (tmp && (tmp->n > 0 && tmp->n <= 127))
 	{
 		putchar(tmp->n);
 		tmp = tmp->next;
 	}
 	putchar('\n');
+}
+
+/**
+ * _rotl - A function  prints the string starting at the top of the stack.
+ * @head: Pointer to the first node.
+ * @line_number: Is the line number where the instruction appears
+ */
+
+
+void _rotl(stack_t **head, unsigned int line_number)
+{
+	(void)head;
+	(void)line_number;
+
 }
