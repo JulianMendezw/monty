@@ -78,7 +78,7 @@ void _pint(stack_t **head, unsigned int line_number)
 
 	if (!tmp)
 	{
-		printf("L%u: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		_free_all_varx();
 		exit(EXIT_FAILURE);
 	}
