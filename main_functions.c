@@ -38,6 +38,7 @@ void _get_opcode(unsigned int line_number)
 	{"nop", _nop}, {"sub", _sub}, {"div", _div},
 	{"mul", _mul}, {"mod", _mod}, {"pchar", _pchar},
 	{"pstr", _pstr}, {"rotl", _rotl}, {"rotr", _rotr},
+	{"queue", _queue}, {"stack", _stack},
 	{NULL, NULL}
 	};
 

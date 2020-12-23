@@ -13,6 +13,7 @@ int main(int argc, char **argv)
 	varx.fd = 0;
 	varx.buffer = NULL;
 	varx.head = NULL;
+	varx.queue = 0;
 
 	_validate_number_arguments(argc);
 

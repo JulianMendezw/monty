@@ -8,45 +8,45 @@
 
 void _push(stack_t **head, unsigned int line_number)
 {
-	stack_t *node = NULL;
+	stack_t *node = NULL, *tmp = varx.head;
+	int n = 0;
 	char *data = NULL;
-	int n = 0, i = 0;
 	(void)head;
 
-	data = strtok(NULL, " ");
-
-	if (!data)
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		_free_all_varx();
-		exit(EXIT_FAILURE);
-	}
-
-	if (data[0] == '-')
-		i++;
-
-	for (; data[i]; i++)
-	{
-		if (data[i] < '0' || data[i] > '9')
-			fprintf(stderr, "L%u: usage: push integer\n", line_number),
-			_free_all_varx(),
-			exit(EXIT_FAILURE);
-	}
+	data = _validate_data(line_number);
 
 	node = malloc(sizeof(stack_t));
 	if (!node)
-		fprintf(stderr, "Error: malloc failed\n"),
-		_free_all_varx(),
+		fprintf(stderr, "Error: malloc failed\n"), _free_all_varx(),
 		exit(EXIT_FAILURE);
+
 	if (varx.head)
 		(varx.head)->prev = node;
-
 	n = atoi(data);
 
-	node->n = n;
-	node->next = varx.head;
-	node->prev = NULL;
-	varx.head = node;
+	if (varx.queue == 0)
+	{
+		node->n = n;
+		node->next = varx.head;
+		node->prev = NULL;
+		varx.head = node;
+	}
+	else
+	{
+		node->n = n;
+		node->next = NULL;
+
+		if (!varx.head)
+			varx.head = node, node->prev = NULL;
+		else
+		{
+			while (tmp->next)
+				tmp = tmp->next;
+
+			tmp->next = node;
+			node->prev = tmp;
+		}
+	}
 }
 
 /**

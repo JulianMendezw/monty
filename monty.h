@@ -42,6 +42,7 @@ typedef struct instruction_s
  * @fd: File descriptor.
  * @buffer: Pointer to the buffer created by getline.
  * @head: Pointer to first node of the stack.
+ * @queue: sets the format of the data to a queue (FIFO).
  *
  * Description: We can acces to this variables on anywhere on our program.
  */
@@ -50,6 +51,7 @@ typedef struct variables_s
 	FILE *fd;
 	char *buffer;
 	stack_t *head;
+	int queue;
 } var_t;
 extern var_t varx;
 var_t varx;
@@ -59,7 +61,11 @@ void _validate_number_arguments(int argc);
 FILE *_open_file(char **argv);
 void _get_info_data(void);
 void _get_opcode(unsigned int line_number);
+
+/** File: aux_funcs.c */
 void _free_all_varx(void);
+char *_validate_data(unsigned int line_number);
+
 
 /** File: opcode_0.c */
 void _push(stack_t **head, unsigned int line_number);
@@ -75,11 +81,15 @@ void _sub(stack_t **head, unsigned int line_number);
 void _div(stack_t **head, unsigned int line_number);
 void _mul(stack_t **head, unsigned int line_number);
 
-/** File: opcode_1.c */
+/** File: opcode_2.c */
 void _mod(stack_t **head, unsigned int line_number);
 void _pchar(stack_t **head, unsigned int line_number);
 void _pstr(stack_t **head, unsigned int line_number);
 void _rotl(stack_t **head, unsigned int line_number);
 void _rotr(stack_t **head, unsigned int line_number);
+
+/** File: opcode_3.c */
+void _stack(stack_t **head, unsigned int line_number);
+void _queue(stack_t **head, unsigned int line_number);
 
 #endif
