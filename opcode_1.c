@@ -56,7 +56,7 @@ void _sub(stack_t **head, unsigned int line_number)
 
 	if (!*head || !(*head)->next)
 	{
-		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
 		_free_all_varx();
 		exit(EXIT_FAILURE);
 	}
