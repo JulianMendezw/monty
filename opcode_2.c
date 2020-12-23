@@ -111,3 +111,37 @@ void _rotl(stack_t **head, unsigned int line_number)
 		}
 	}
 }
+
+/**
+ * _rotr - A function  prints the string starting at the top of the stack.
+ * @head: Pointer to the first node.
+ * @line_number: Is the line number where the instruction appears
+ */
+
+void _rotr(stack_t **head, unsigned int line_number)
+{
+	stack_t *tmp = *head;
+	int data_c = 0;
+	(void)line_number;
+
+	while (tmp)
+	{
+		if (!tmp->next)
+		{
+			data_c = tmp->n;
+			break;
+		}
+		tmp = tmp->next;
+	}
+
+	while (tmp)
+	{
+		if (!tmp->prev)
+		{
+			tmp->n = data_c;
+			break;
+		}
+		tmp->n = tmp->prev->n;
+		tmp = tmp->prev;
+	}
+}
