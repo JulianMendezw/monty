@@ -4,12 +4,6 @@ Foundations - Low-level programming & Algorithm ― Data structures and Algorith
 
 _by Julien Barbier, co-founder & CEO at Holberton School_
 
-Ongoing project - started 12-18-2020, must end by 12-23-2020 (in 3 days) - you're done with  0% of tasks.
-
-Checker will be released at 12-21-2020 03:00 AM
-
-QA review fully automated.
-
 ## Resources
 
 **Read or watch**:
