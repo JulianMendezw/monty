@@ -1,3 +1,5 @@
+<div align="center"><img src="https://i.ibb.co/gM17V3p/19168729.png"></div>
+
 # 0x19. C - Stacks, Queues - LIFO, FIFO
 
 Foundations - Low-level programming & Algorithm ― Data structures and Algorithms
